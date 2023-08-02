@@ -602,12 +602,12 @@ prometheus:
     - job_name: kubecost
       honor_labels: true
       scrape_interval: 1m
-      scrape_timeout: 60s
+      scrape_timeout: 10s
       metrics_path: /metrics
       scheme: http
       dns_sd_configs:
       - names:
-        - {{ template "cost-analyzer.serviceName" . }}
+        - kubecost-cost-analyzer.kubecost
         type: 'A'
         port: 9003
     - job_name: kubecost-networking
